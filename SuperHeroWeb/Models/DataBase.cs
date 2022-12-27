@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.WebPages;
 
 namespace SuperHeroWeb.Models
 {
@@ -11,7 +12,7 @@ namespace SuperHeroWeb.Models
     {
 
         //TODO: Obtencion de heroes desde la bd
-        private List<Heroe> ObtenerHeroes() { 
+        public List<Heroe> ObtenerHeroes() { 
             List<Heroe> losHeroes = new List<Heroe>();
             String cnnStr = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
 
@@ -19,13 +20,15 @@ namespace SuperHeroWeb.Models
                 cnn.Open();
 
                 SqlCommand cmdSql = new SqlCommand("Select * from Heroes order by Id", cnn);
-
+                
                 SqlDataReader dr = cmdSql.ExecuteReader();
 
 
                 while (dr.Read()) {
-                    //losHeroes.Add(new Heroe(dr.GetInt32(0), dr["Nombre"].ToString(), dr["Superpoder"].ToString(),dr.GetInt32(0),));
+                    losHeroes.Add(new Heroe(dr["Id"].ToString().AsInt(), dr["Nombre"].ToString(), dr["Superpoder"].ToString(), dr["Nivel"].ToString().AsInt(), dr["Retirado"].ToString().AsBool(), dr["Correo"].ToString(), dr["Fechanac"].ToString().AsDateTime(), dr["Altura"].ToString().AsFloat(), dr["Peso"].ToString().AsFloat()));
                 }
+                cnn.Close();
+                cnn.Dispose();
             }
 
                 return losHeroes;

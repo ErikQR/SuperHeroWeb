@@ -10,10 +10,13 @@ namespace SuperHeroWeb.Controllers
 
     public class HomeController : Controller
     {
+        
         // GET: Home
         public ActionResult Index()
         {
-            List<Heroe> losHeroes = new List<Heroe>();
+            DataBase db = new DataBase();
+            List<Heroe> losHeroes = db.ObtenerHeroes();
+
             return View(losHeroes);
         }
 
