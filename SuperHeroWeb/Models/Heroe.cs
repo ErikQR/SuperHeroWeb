@@ -9,49 +9,48 @@ namespace SuperHeroWeb.Models
 {
     public class Heroe
     {
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Debe ingresar su numero de Heroe")]
-        [Display(Name = "Numero de Heroe")]
-        public int NumerodeHeroe { get; set; }
-        [Display(Name = "Nombre")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Debe ingresar su Nombre")]
-        public string Nombre { get; set; }
-        [Display(Name = "Nombre de Alias")]
+
+        [Display(Name = "Nombre de SuperHeroe")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Debe ingresar su Alias de Heroe")]
-        public string Alias { get; set; }
-        [Display(Name = "Correo Electronico")]
+        public string Nombre { get; set; }
+
+        [Display(Name = "Superpoder")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Debe ingresar su Nombre")]
+        public string Superpoder { get; set; }
+
+        [Display(Name = "Nivel de poder")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Debe ingresar su Edad")]
+        public int Nivel { get; set; }
+
+        [Display(Name = "Retirado?")]
+        public bool Retirado { get; set; }
+
+        [Display(Name = "Correo de contacto")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Debe ingresar su correo electronico")]
         [RegularExpression(@"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)", ErrorMessage = "Correo inválido")]
         public string Correo { get; set; }
+
         [Display(Name = "Fecha de Nacimiento")]
         [DataType(DataType.Date)]
         public DateTime FechaNac { get; set; }
-        [Display(Name = "Edad")]
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Debe ingresar su Edad")]
-        public int Edad { get; set; }
-        [Display(Name = "Contratado?")]
-        public bool Contratado { get; set; }
+
         [Display(Name = "Altura")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Debe ingresar su altura")]
         public float Altura { get; set; }
+
         [Display(Name = "Peso")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Debe ingresar su peso")]
         public float Peso { get; set; }
 
-        public Heroe() { 
-        
+        public Heroe( string nombre, string superpoder, int nivel, bool retirado, string correo, DateTime fechaNac, float altura, float peso) { 
+            Nombre = nombre;
+            Superpoder = superpoder;
+            Nivel = nivel;
+            Retirado = retirado;
+            Correo = correo;
+            FechaNac = fechaNac;
+            Altura = altura;
+            Peso = peso;
         }
-
-        //public Heroe(int numerodeHeroe, string nombre, string alias, string correo, DateTime fechaNac, int edad, bool contratado, float altura, float peso)
-        //{
-        //    NumerodeHeroe = numerodeHeroe;
-        //    Nombre = nombre;
-        //    Alias = alias;
-        //    Correo = correo;
-        //    FechaNac = fechaNac;
-        //    Edad = edad;
-        //    Contratado = contratado;
-        //    Altura = altura;
-        //    Peso = peso;
-        //}
     }
 }
