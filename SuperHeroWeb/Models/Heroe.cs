@@ -47,6 +47,14 @@ namespace SuperHeroWeb.Models
 
         }
 
+        public Heroe( string nombre, string superpoder, int nivel)
+        {
+            Nombre = nombre;
+            Superpoder = superpoder;
+            Nivel = nivel;
+
+        }
+
         //public Heroe( string nombre, string superpoder, int nivel, bool retirado, string correo, DateTime fechaNac, float altura, float peso) { 
         //    Nombre = nombre;
         //    Superpoder = superpoder;
