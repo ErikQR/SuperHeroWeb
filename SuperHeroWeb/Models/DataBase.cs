@@ -12,7 +12,7 @@ namespace SuperHeroWeb.Models
     {
 
         //TODO: Obtencion de heroes desde la bd OK
-        public List<Heroe> ObtenerHeroes() { 
+        public List<Heroe> obtenerHeroes() { 
             List<Heroe> losHeroes = new List<Heroe>();
             String cnnStr = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
 
@@ -35,7 +35,7 @@ namespace SuperHeroWeb.Models
 
                 return losHeroes;
         }
-        public Heroe BuscarHeroeId(int id) {
+        public Heroe buscarHeroeId(int id) {
             Heroe hero = null;
             String cnnStr = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
 
@@ -59,30 +59,9 @@ namespace SuperHeroWeb.Models
 
                 return hero;
         }
-        //Empleado empleado = null;
-        //    String cnnStr = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
-
-        //    using (SqlConnection cnn = new SqlConnection(cnnStr)) {
-        //        cnn.Open();
-
-        //        SqlCommand cmdSql = new SqlCommand("Select * from Empleados where numEmpleado = @id", cnn);
-        //        cmdSql.Parameters.AddWithValue("@id", id);
-
-        //        SqlDataReader dr = cmdSql.ExecuteReader();
-
-        //        if (dr.Read()) {
-        //            empleado = new Empleado(dr.GetInt32(0), dr.GetString(1));
-        //        }
-
-
-        //        cnn.Close();
-        //        cnn.Dispose();
-        //    }
-
-        //    return empleado;
         //TODO: Busqueda de heroes segun id
-        
-        
+
+
         //TODO: creacion de metodo create
 
 
@@ -93,6 +72,17 @@ namespace SuperHeroWeb.Models
 
 
         //TODO: creacion metodo delete
+        public int eliminarHeroe(int id) {
+            String cnnStr = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
 
+            using (SqlConnection cnn = new SqlConnection(cnnStr)) {
+                cnn.Open();
+
+                SqlCommand cmdSql = new SqlCommand("delete from Heroes where id = @id",cnn);
+                cmdSql.Parameters.AddWithValue("@id", id);
+
+                return cmdSql.ExecuteNonQuery();
+            }
+        }
     }
 }
