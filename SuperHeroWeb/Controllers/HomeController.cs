@@ -13,6 +13,11 @@ namespace SuperHeroWeb.Controllers
         public ActionResult Index()
         {
             List<Heroe> losHeroes = new List<Heroe>();
+
+            losHeroes.Add(new Heroe("Mr. Increible","Super Fuerza",75));
+            losHeroes.Add(new Heroe("Elastigirl", "Elasticidad", 65));
+            losHeroes.Add(new Heroe("Frozono", "Congelacion", 70));
+
             return View(losHeroes);
         }
 
