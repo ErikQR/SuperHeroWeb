@@ -6,25 +6,25 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.NumerodeHeroe)
+            @Html.DisplayNameFor(model => model.Id)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Nombre)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Alias)
+            @Html.DisplayNameFor(model => model.Superpoder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nivel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Retirado)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Correo)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.FechaNac)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Edad)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Contratado)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Altura)
@@ -38,25 +38,25 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.NumerodeHeroe)
+            @Html.DisplayNameFor(model => model.Id)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nombre)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Alias)
+            @Html.DisplayFor(modelItem => item.Superpoder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nivel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Retirado)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Correo)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.FechaNac)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Edad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Contratado)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Altura)
