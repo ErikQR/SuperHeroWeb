@@ -45,19 +45,29 @@ namespace SuperHeroWeb.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Debe ingresar su peso")]
         public float Peso { get; set; }
 
-        public Heroe() { 
-            
+        public Heroe()
+        {
+
         }
+
         public Heroe(int id, string nombre, string superpoder, int nivel, bool retirado, string correo, DateTime fechaNac, float altura, float peso) {
             Id = id;
+
             Nombre = nombre;
             Superpoder = superpoder;
             Nivel = nivel;
-            Retirado = retirado;
-            Correo = correo;
-            FechaNac = fechaNac;
-            Altura = altura;
-            Peso = peso;
+
         }
+
+        //public Heroe( string nombre, string superpoder, int nivel, bool retirado, string correo, DateTime fechaNac, float altura, float peso) { 
+        //    Nombre = nombre;
+        //    Superpoder = superpoder;
+        //    Nivel = nivel;
+        //    Retirado = retirado;
+        //    Correo = correo;
+        //    FechaNac = fechaNac;
+        //    Altura = altura;
+        //    Peso = peso;
+        //}
     }
 }

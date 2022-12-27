@@ -12,8 +12,10 @@ namespace SuperHeroWeb.Controllers
         // GET: Home
         public ActionResult Index()
         {
+
             DataBase db = new DataBase();
             List<Heroe> losHeroes = db.obtenerHeroes();
+
 
             return View(losHeroes);
         }
