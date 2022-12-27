@@ -13,7 +13,7 @@ namespace SuperHeroWeb.Controllers
         public ActionResult Index()
         {
             DataBase db = new DataBase();
-            List<Heroe> losHeroes = db.ObtenerHeroes();
+            List<Heroe> losHeroes = db.obtenerHeroes();
 
             return View(losHeroes);
         }
@@ -22,7 +22,7 @@ namespace SuperHeroWeb.Controllers
         public ActionResult Details(int id)
         {
             DataBase db = new DataBase();
-            Heroe h = db.BuscarHeroeId(id);
+            Heroe h = db.buscarHeroeId(id);
             if (h != null)
             {
                 return View(h);
@@ -80,7 +80,9 @@ namespace SuperHeroWeb.Controllers
         // GET: Home/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            DataBase db = new DataBase();
+            Heroe h = db.buscarHeroeId(id);
+            return View(h);
         }
 
         // POST: Home/Delete/5
@@ -90,7 +92,8 @@ namespace SuperHeroWeb.Controllers
             try
             {
                 // TODO: Add delete logic here
-
+                DataBase db = new DataBase();
+                db.eliminarHeroe(id);
                 return RedirectToAction("Index");
             }
             catch
