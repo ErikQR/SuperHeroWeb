@@ -7,10 +7,8 @@ using System.Web.Mvc;
 
 namespace SuperHeroWeb.Controllers
 {
-
     public class HomeController : Controller
     {
-        
         // GET: Home
         public ActionResult Index()
         {
@@ -23,7 +21,16 @@ namespace SuperHeroWeb.Controllers
         // GET: Home/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            DataBase db = new DataBase();
+            Heroe h = db.BuscarHeroeId(id);
+            if (h != null)
+            {
+                return View(h);
+            }
+            else
+            {
+                return Content("<h1> No existe </h1>");
+            }
         }
 
         // GET: Home/Create
