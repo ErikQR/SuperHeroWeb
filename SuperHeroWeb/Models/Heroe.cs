@@ -9,6 +9,9 @@ namespace SuperHeroWeb.Models
 {
     public class Heroe
     {
+        [Display(Name = "Identificador de SuperHeroe")]
+        [Required(AllowEmptyStrings = false, ErrorMessage ="Debe ingresar su identificador de SuperHeroe")]
+        public int Id { get; set; }
 
         [Display(Name = "Nombre de SuperHeroe")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Debe ingresar su Alias de Heroe")]
@@ -47,8 +50,9 @@ namespace SuperHeroWeb.Models
 
         }
 
-        public Heroe( string nombre, string superpoder, int nivel)
-        {
+        public Heroe(int id, string nombre, string superpoder, int nivel, bool retirado, string correo, DateTime fechaNac, float altura, float peso) {
+            Id = id;
+
             Nombre = nombre;
             Superpoder = superpoder;
             Nivel = nivel;
