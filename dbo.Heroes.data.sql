@@ -1,0 +1,3 @@
+﻿INSERT INTO [dbo].[Heroes] ([Id], [Nombre], [Superpoder], [Nivel], [Retirado], [Correo], [Fechanac], [Altura], [Peso]) VALUES (1234, N'Midoriya', N'One for All', 30, N'false', N'midoriya-30@gmail.com', N'2000-07-15', 166, 59)
+INSERT INTO [dbo].[Heroes] ([Id], [Nombre], [Superpoder], [Nivel], [Retirado], [Correo], [Fechanac], [Altura], [Peso]) VALUES (3456, N'Bakugo', N'Explosion', 30, N'true', N'bakugo-30@gmail.com', N'1999-04-20', 172, 63)
+INSERT INTO [dbo].[Heroes] ([Id], [Nombre], [Superpoder], [Nivel], [Retirado], [Correo], [Fechanac], [Altura], [Peso]) VALUES (9012, N'Uraraka', N'Gravedad 0', 25, N'false', N'uraraka-25@gmail.com', N'2000-12-27', 156, 50)
