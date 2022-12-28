@@ -95,6 +95,31 @@ namespace SuperHeroWeb.Controllers
             try
             {
                 // TODO: Add update logic here
+                DataBase db = new DataBase();
+                Heroe h = new Heroe();
+                Heroe h2 = db.buscarHeroeId(id);
+
+                h.Id = id;
+                h.Nombre = collection["Nombre"].ToString();
+                h.Superpoder = collection["Superpoder"].ToString();
+                h.Nivel = collection["Nivel"].ToString().AsInt();
+                h.Retirado = collection["Retirado"].ToString().AsBool();
+                h.Correo = collection["Correo"].ToString();
+                h.FechaNac = collection["FechaNac"].ToString().AsDateTime();
+                h.Altura = collection["Altura"].ToString().AsFloat();
+                h.Peso = collection["Peso"].ToString().AsFloat();
+
+                
+
+                if (h2.Id == h.Id)
+                {
+                    db.editarHeroe(h);
+                    TempData["Success"] = "Usuario Editado con exito";
+                }
+                else
+                {
+                    return Content("<h1> El identificador ingresado ya existe </h1>");
+                }
 
                 return RedirectToAction("Index");
             }

@@ -52,7 +52,7 @@ namespace SuperHeroWeb.Models
                 if (dr.Read()) {
                     hero = new Heroe(dr["Id"].ToString().AsInt(), dr["Nombre"].ToString(), dr["Superpoder"].ToString(), 
                         dr["Nivel"].ToString().AsInt(), dr["Retirado"].ToString().AsBool(), dr["Correo"].ToString(),
-                        dr["Fechanac"].ToString().AsDateTime(), dr["Altura"].ToString().AsFloat(), dr["Peso"].ToString().AsFloat());
+                        dr["Fechanac"].ToString().AsDateTime().Date , dr["Altura"].ToString().AsFloat(), dr["Peso"].ToString().AsFloat());
                 }
                 cnn.Close();
                 cnn.Dispose();
@@ -65,6 +65,7 @@ namespace SuperHeroWeb.Models
             String cnnStr = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
 
             using (SqlConnection cnn = new SqlConnection(cnnStr)) {
+                cnn.Open();
                 
 
                 SqlCommand cmdSql = new SqlCommand("insert into Heroes (Id,Nombre,Superpoder,Nivel,Retirado,Correo,Fechanac,Altura,Peso) " +
@@ -78,7 +79,6 @@ namespace SuperHeroWeb.Models
                 cmdSql.Parameters.AddWithValue("@fechanac",heroe.FechaNac);
                 cmdSql.Parameters.AddWithValue("@altura",heroe.Altura);
                 cmdSql.Parameters.AddWithValue("@peso",heroe.Peso);
-                cnn.Open();
                 
                 
                 return cmdSql.ExecuteNonQuery();
@@ -87,7 +87,30 @@ namespace SuperHeroWeb.Models
 
 
         //TODO: creacion metodo update
+        public int editarHeroe(Heroe h) {
+            String cnnStr = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
 
+            using (SqlConnection cnn = new SqlConnection(cnnStr)) {
+                cnn.Open();
+
+                SqlCommand cmdSql = new SqlCommand("update Heroes " +
+                    "set Nombre=@nombre, Superpoder=@superpoder, Nivel=@nivel, Retirado=@retirado, Correo=@correo, Fechanac=@fechanac, Altura=@altura, Peso=@peso " +
+                    "where Id = @id",cnn);
+                cmdSql.Parameters.AddWithValue("@id", h.Id);
+                cmdSql.Parameters.AddWithValue("@nombre", h.Nombre);
+                cmdSql.Parameters.AddWithValue("@superpoder", h.Superpoder);
+                cmdSql.Parameters.AddWithValue("@nivel", h.Nivel);
+                cmdSql.Parameters.AddWithValue("@retirado", h.Retirado);
+                cmdSql.Parameters.AddWithValue("@correo", h.Correo);
+                cmdSql.Parameters.AddWithValue("@fechanac", h.FechaNac);
+                cmdSql.Parameters.AddWithValue("@altura", h.Altura);
+                cmdSql.Parameters.AddWithValue("@peso", h.Peso);
+
+                return cmdSql.ExecuteNonQuery();
+            }
+
+                
+        }
 
         //TODO: creacion metodo delete
         public int eliminarHeroe(int id) {
