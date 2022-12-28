@@ -19,9 +19,6 @@
                 <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
                 <span class="fs-4">SUPER HERO WEB</span>
             </a>
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0">
-                <input type="search" class="form-control" placeholder="Buscar..." aria-label="Buscar">
-            </form>
         </div>
     </header>
 
@@ -31,7 +28,6 @@
             <p class="lead mb-4">Si eres o conoces a un HEROE, puedes usar esta simple pagina para registrar sus datos, para despues poder consultarlos, actualizarlos o incluso eliminar datos.</p>
             <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
                 @Html.ActionLink("Agregar Heroe", "Create", "Agregar Heroe", htmlAttributes: new { @class = "btn btn-primary btn-lg px-4 me-sm-3" })
-                @Html.ActionLink("Ver lista", "Index", "Ver lista", htmlAttributes: new { @class = "btn btn-primary btn-lg px-4 me-sm-3" })
             </div>
         </div>
         <div class="overflow-hidden" style="max-height: 30vh;">

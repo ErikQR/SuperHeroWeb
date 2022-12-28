@@ -27,7 +27,7 @@ namespace SuperHeroWeb.Models
                 while (dr.Read()) {
                     losHeroes.Add(new Heroe(dr["Id"].ToString().AsInt(), dr["Nombre"].ToString(), dr["Superpoder"].ToString(),
                         dr["Nivel"].ToString().AsInt(), dr["Retirado"].ToString().AsBool(), dr["Correo"].ToString(),
-                        dr["Fechanac"].ToString().AsDateTime(), dr["Altura"].ToString().AsFloat(), dr["Peso"].ToString().AsFloat()));
+                        dr["Fechanac"].ToString().AsDateTime().Date, dr["Altura"].ToString().AsFloat(), dr["Peso"].ToString().AsFloat()));
                 }
                 cnn.Close();
                 cnn.Dispose();
