@@ -1,83 +1,31 @@
 ﻿@model SuperHeroWeb.Models.Heroe
 
-<div>
-    <h4>Heroe</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
+<div class="album py-5 justify-content-md-center">
+    <div class="container justify-content-md-center">
 
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Superpoder)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Superpoder)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Nivel)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nivel)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Retirado)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Retirado)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Correo)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Correo)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FechaNac)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FechaNac)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Altura)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Altura)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Peso)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Peso)
-        </dd>
-
-    </dl>
+        <div class="row justify-content-md-center">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <div class="card-body">
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Id): @Html.DisplayFor(model => model.Id)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Nombre) : @Html.DisplayFor(model => model.Nombre)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Superpoder) : @Html.DisplayFor(model => model.Superpoder)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Nivel) : @Html.DisplayFor(model => model.Nivel)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Retirado) : @Html.DisplayFor(model => model.Retirado)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Correo) : @Html.DisplayFor(model => model.Correo)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.FechaNac) : @Html.DisplayFor(model => model.FechaNac)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Altura) : @Html.DisplayFor(model => model.Altura)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Peso) : @Html.DisplayFor(model => model.Peso)</p>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <p>
+                            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+                            @Html.ActionLink("Volver atras", "Index")
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

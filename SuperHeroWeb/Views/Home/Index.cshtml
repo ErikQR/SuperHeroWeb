@@ -1,24 +1,45 @@
 ﻿@model IEnumerable<SuperHeroWeb.Models.Heroe>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-@{
-    string classAlerta = string.Empty;
-}
+@*<p>
+    @Html.ActionLink("Agregar Heroe", "Create")
+</p>*@
 
-@if (TempData["Success"] != null)
-{
-        classAlerta = "alert alert-success";
-    <div class="row" style="margin-top:2%;">
-        <div class="col-md-8">
-            <div class="@classAlerta" role="alert">
-                @TempData["Success"].ToString()
-            </div>
+<div class="album py-5 ">
+    <div class="container">
+
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-body">
+                            <p class="card-text">ID: @Html.DisplayFor(modelItem => item.Id) | Nombre: @Html.DisplayFor(modelItem => item.Nombre)</p>
+                            <p class="card-text">Superpoder : @Html.DisplayFor(modelItem => item.Superpoder)</p>
+                            <p class="card-text">Nivel de poder: @Html.DisplayFor(modelItem => item.Nivel)</p>
+                            <p class="card-text">Retirado? : @Html.DisplayFor(modelItem => item.Retirado)</p>
+                            <p class="card-text">Correo : @Html.DisplayFor(modelItem => item.Correo)</p>
+                            <p class="card-text">Fecha de Nacimiento : @Html.DisplayFor(modelItem => item.FechaNac)</p>
+                            <p class="card-text">Altura : @Html.DisplayFor(modelItem => item.Altura)</p>
+                            <p class="card-text">Peso : @Html.DisplayFor(modelItem => item.Peso)</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+
+                                    @Html.ActionLink("Ver mas", "Details", "Home", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-sm btn-outline-secondary" })
+                                    @Html.ActionLink("Editar", "Edit", "Home", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-sm btn-outline-secondary" })
+
+                                </div>
+                                @Html.ActionLink("Eliminar", "Delete", "Home", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-sm btn-outline-secondary" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
         </div>
     </div>
-}
-<table class="table">
+</div>
+
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Id)
@@ -50,42 +71,40 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Superpoder)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nivel)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Retirado)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Correo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FechaNac)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Altura)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Peso)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-            </td>
-        </tr>
-    }
-
-</table>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Superpoder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nivel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Retirado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Correo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaNac)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Altura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Peso)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Ver", "Details", new { id = item.Id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+}
+</table>*@
