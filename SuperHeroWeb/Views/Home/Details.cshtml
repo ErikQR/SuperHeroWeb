@@ -1,89 +1,32 @@
 ﻿@model SuperHeroWeb.Models.Heroe
 
-<div class="container mt-5">
-    <div class="row justify-content-md-center">
-        <div class=" card col-md-8 shadow rounded border">
-            <div>
-                <h4>Heroe</h4>
-                <hr />
-                <dl class="dl-horizontal">
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Id)
-                    </dt>
 
-                    <dd>
-                        @Html.DisplayFor(model => model.Id)
-                    </dd>
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Nombre)
-                    </dt>
+<div class="album py-5 justify-content-md-center">
+    <div class="container justify-content-md-center">
 
-                    <dd>
-                        @Html.DisplayFor(model => model.Nombre)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Superpoder)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.Superpoder)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Nivel)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.Nivel)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Retirado)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.Retirado)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Correo)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.Correo)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.FechaNac)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.FechaNac)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Altura)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.Altura)
-                    </dd>
-
-                    <dt>
-                        @Html.DisplayNameFor(model => model.Peso)
-                    </dt>
-
-                    <dd>
-                        @Html.DisplayFor(model => model.Peso)
-                    </dd>
-
-                </dl>
+        <div class="row justify-content-md-center">
+            <div class="col-md-4">
+                <div class="card mb-4 box-shadow">
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22508%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20508%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_18557b6bd8a%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A25pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_18557b6bd8a%22%3E%3Crect%20width%3D%22508%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22169.75%22%20y%3D%22123.6%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Id): @Html.DisplayFor(model => model.Id)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Nombre) : @Html.DisplayFor(model => model.Nombre)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Superpoder) : @Html.DisplayFor(model => model.Superpoder)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Nivel) : @Html.DisplayFor(model => model.Nivel)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Retirado) : @Html.DisplayFor(model => model.Retirado)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Correo) : @Html.DisplayFor(model => model.Correo)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.FechaNac) : @Html.DisplayFor(model => model.FechaNac)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Altura) : @Html.DisplayFor(model => model.Altura)</p>
+                        <p class="card-text">@Html.DisplayNameFor(model => model.Peso) : @Html.DisplayFor(model => model.Peso)</p>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <p>
+                            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
+                            @Html.ActionLink("Volver atras", "Index")
+                        </p>
+                    </div>
+                </div>
             </div>
-            <p>
-                @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-                @Html.ActionLink("Back to List", "Index")
-            </p>
         </div>
     </div>
 </div>
