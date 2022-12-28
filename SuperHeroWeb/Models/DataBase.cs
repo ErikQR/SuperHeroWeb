@@ -35,6 +35,8 @@ namespace SuperHeroWeb.Models
 
                 return losHeroes;
         }
+
+        //TODO: Busqueda de heroes segun id OK
         public Heroe buscarHeroeId(int id) {
             Heroe hero = null;
             String cnnStr = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
@@ -56,16 +58,32 @@ namespace SuperHeroWeb.Models
                 cnn.Dispose();
 
             }
-
                 return hero;
         }
-        //TODO: Busqueda de heroes segun id
-
-
         //TODO: creacion de metodo create
+        public int agregarHeroe(Heroe heroe) {
+            String cnnStr = ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
 
+            using (SqlConnection cnn = new SqlConnection(cnnStr)) {
+                
 
-        //TODO: creacion metodo read
+                SqlCommand cmdSql = new SqlCommand("insert into Heroes (Id,Nombre,Superpoder,Nivel,Retirado,Correo,Fechanac,Altura,Peso) " +
+                    "values (@id,@nombre,@superpoder,@nivel,@retirado,@correo,@fechanac,@altura,@peso)",cnn);
+                cmdSql.Parameters.AddWithValue("@id",heroe.Id);
+                cmdSql.Parameters.AddWithValue("@nombre",heroe.Nombre);
+                cmdSql.Parameters.AddWithValue("@superpoder",heroe.Superpoder);
+                cmdSql.Parameters.AddWithValue("@nivel",heroe.Nivel);
+                cmdSql.Parameters.AddWithValue("@retirado",heroe.Retirado);
+                cmdSql.Parameters.AddWithValue("@correo",heroe.Correo);
+                cmdSql.Parameters.AddWithValue("@fechanac",heroe.FechaNac);
+                cmdSql.Parameters.AddWithValue("@altura",heroe.Altura);
+                cmdSql.Parameters.AddWithValue("@peso",heroe.Peso);
+                cnn.Open();
+                
+                
+                return cmdSql.ExecuteNonQuery();
+            }
+        }
 
 
         //TODO: creacion metodo update

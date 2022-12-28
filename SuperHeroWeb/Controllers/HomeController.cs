@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.WebPages;
 
 namespace SuperHeroWeb.Controllers
 {
@@ -45,7 +46,31 @@ namespace SuperHeroWeb.Controllers
         {
             try
             {
+                DataBase db = new DataBase();
+              
+                Heroe h = new Heroe();
                 // TODO: Add insert logic here
+                //sacar info de collection
+                h.Id = collection["Id"].ToString().AsInt();
+                h.Nombre = collection["Nombre"].ToString();
+                h.Superpoder = collection["Superpoder"].ToString();
+                h.Nivel = collection["Nivel"].ToString().AsInt();
+                h.Retirado = collection["Retirado"].ToString().AsBool();
+                h.Correo = collection["Correo"].ToString();
+                h.FechaNac = collection["FechaNac"].ToString().AsDateTime();
+                h.Altura = collection["Altura"].ToString().AsFloat();
+                h.Peso = collection["Peso"].ToString().AsFloat();
+                // TODO: buscar si el id del heroe almacenado en el formcollection es igual a uno existente
+                Heroe h2 = db.buscarHeroeId(h.Id);
+                if (h2 == null)
+                {
+                    db.agregarHeroe(h);
+                    TempData["Success"] = "Usuario registrado";
+                }
+                else {
+                    return Content("<h1> El identificador ingresado ya existe </h1>");
+                }
+                // en caso positivo guardar
 
                 return RedirectToAction("Index");
             }
@@ -58,7 +83,9 @@ namespace SuperHeroWeb.Controllers
         // GET: Home/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            DataBase db = new DataBase();
+            Heroe h = db.buscarHeroeId(id);
+            return View(h);
         }
 
         // POST: Home/Edit/5
@@ -94,6 +121,7 @@ namespace SuperHeroWeb.Controllers
                 // TODO: Add delete logic here
                 DataBase db = new DataBase();
                 db.eliminarHeroe(id);
+                TempData["Success"] = "Usuario Eliminado con Exito";
                 return RedirectToAction("Index");
             }
             catch
