@@ -3,11 +3,11 @@
 
 <div class="album py-5 justify-content-md-center">
     <div class="container justify-content-md-center">
-
         <div class="row justify-content-md-center">
             <div class="col-md-4">
                 <div class="card mb-4 box-shadow">
                     <div class="card-body">
+                        <p class="card-title fs-5 fw-bold">Datos del Heroe: </p>
                         <p class="card-text">@Html.DisplayNameFor(model => model.Id): @Html.DisplayFor(model => model.Id)</p>
                         <p class="card-text">@Html.DisplayNameFor(model => model.Nombre) : @Html.DisplayFor(model => model.Nombre)</p>
                         <p class="card-text">@Html.DisplayNameFor(model => model.Superpoder) : @Html.DisplayFor(model => model.Superpoder)</p>
@@ -20,8 +20,8 @@
                     </div>
                     <div class="row justify-content-md-center">
                         <p>
-                            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
-                            @Html.ActionLink("Volver atras", "Index")
+                            @Html.ActionLink("Editar", "Edit", new { id = Model.Id }, htmlAttributes: new { @class = "btn btn-primary my-3 ms-2" })
+                            @Html.ActionLink("Volver atras", "Index", new { }, htmlAttributes: new { @class = "btn btn-secondary my-3 mx-2btn btn-secondary" })
                         </p>
                     </div>
                 </div>

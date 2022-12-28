@@ -7,11 +7,11 @@
             {
                 @Html.AntiForgeryToken()
             <div class="form-horizontal">
-                <h4>HEROE</h4>
+                <h4 class="mx-3">HEROE</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label" })
+                    @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label mx-3" })
                     <div class="row m-2">
                         @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
@@ -20,7 +20,7 @@
 
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2 mx-3" })
                     <div class="row m-2">
                         @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
@@ -28,7 +28,15 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Nivel, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.Superpoder, htmlAttributes: new { @class = "control-label col-md-2 mx-3" })
+                    <div class="row m-2">
+                        @Html.EditorFor(model => model.Superpoder, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Superpoder, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Nivel, htmlAttributes: new { @class = "control-label col-md-2 mx-3" })
                     <div class="row m-2">
                         @Html.EditorFor(model => model.Nivel, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Nivel, "", new { @class = "text-danger" })
@@ -36,7 +44,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Retirado, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.Retirado, htmlAttributes: new { @class = "control-label col-md-2 mx-3" })
                     <div class="row m-2">
                         <div class="checkbox">
                             @Html.EditorFor(model => model.Retirado)
@@ -46,7 +54,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Correo, htmlAttributes: new { @class = "control-label" })
+                    @Html.LabelFor(model => model.Correo, htmlAttributes: new { @class = "control-label mx-3" })
                     <div class="row m-2">
                         @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { placeholder = "ejemplo@inacap.cl", @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
@@ -54,7 +62,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.FechaNac, htmlAttributes: new { @class = "control-label" })
+                    @Html.LabelFor(model => model.FechaNac, htmlAttributes: new { @class = "control-label mx-3" })
                     <div class="row m-2">
                         @Html.EditorFor(model => model.FechaNac, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.FechaNac, "", new { @class = "text-danger" })
@@ -62,7 +70,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Altura, htmlAttributes: new { @class = "control-label" })
+                    @Html.LabelFor(model => model.Altura, htmlAttributes: new { @class = "control-label mx-3" })
                     <div class="row m-2">
                         @Html.EditorFor(model => model.Altura, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Altura, "", new { @class = "text-danger" })
@@ -70,7 +78,7 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Peso, htmlAttributes: new { @class = "control-label" })
+                    @Html.LabelFor(model => model.Peso, htmlAttributes: new { @class = "control-label mx-3" })
                     <div class="row m-2">
                         @Html.EditorFor(model => model.Peso, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Peso, "", new { @class = "text-danger" })
@@ -79,14 +87,14 @@
 
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Guardar" class="btn btn-primary my-5" />
+                        <input type="submit" value="Guardar" class="btn btn-primary mt-3 mx-2" />
                     </div>
                 </div>
             </div>
             }
 
             <div>
-                @Html.ActionLink("Volver listado", "Index")
+                @Html.ActionLink("Volver listado", "Index", new { }, htmlAttributes: new { @class = "btn btn-secondary my-3 mx-2" })
             </div>
         </div>
     </div>
