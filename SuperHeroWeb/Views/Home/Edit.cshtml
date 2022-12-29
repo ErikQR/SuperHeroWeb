@@ -2,7 +2,7 @@
 
 <div class="container mt-5">
     <div class="row justify-content-md-center">
-        <div class="col-md-8 shadow rounded border style="background-color:white">
+        <div class="col-md-8 shadow rounded border style=background-color:white">
             @using (Html.BeginForm())
             {
                 @Html.AntiForgeryToken()
@@ -13,7 +13,7 @@
                 <div class="form-group">
                     @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label mx-3" })
                     <div class="row m-2">
-                        @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", @readonly="readonly" } })
                         @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
                     </div>
                 </div>
