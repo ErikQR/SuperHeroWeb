@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title SuperHero Web</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.8.3.js"></script>
@@ -13,28 +13,43 @@
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <style>
+        body {
+            background-image: linear-gradient(to bottom right, white, rgba(176, 210, 255));
+        }
+    </style>
+    <header class="py-3 mb-4 border-bottom fixed-top" style="background-color: black">
+        <div class="container d-flex flex-wrap justify-content-center">
+            <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                <span class="fs-4" style="color:white">SUPER HERO WEB</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="px-4 pt-5 my-8 text-center border-bottom" style="background-image: url('../../resources/color_back.jpg'); background-size: 1900px">
+        <h1 class="display-4 fw-bold" style="color: white; text-shadow: 2px 2px 2px black;">EL REGISTRO DE HEROES NO-OFICIAL</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4" style=" font-weight: 500; font-size: 20px; color: white; text-shadow: 2px 2px 2px black;">Si eres o conoces a un HEROE, puedes usar esta simple pagina para registrar sus datos, para despues poder consultarlos, actualizarlos o incluso eliminar datos.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5" >
+                @Html.ActionLink("Agregar Heroe", "Create", "Agregar Heroe", htmlAttributes: new {@style = "box-shadow: 2px 2px 2px black;", @class = "btn btn-primary btn-lg px-4 me-sm-3"})
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
+        </div>
+        <div class="overflow-hidden" style="max-height: 30vh;">
+            <div class="container px-5">
+                <img src="~/Resources/hero-logo.png" class="img-fluid mb-4" alt="Example image" width="700" height="500" loading="lazy">
             </div>
         </div>
     </div>
+
+
 
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - SuperHero Web</p>
+            <p>Hecho por: Erik y Luciano</p>
         </footer>
     </div>
 
