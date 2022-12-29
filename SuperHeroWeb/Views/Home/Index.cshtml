@@ -13,17 +13,17 @@
             @foreach (var item in Model)
             {
                 <div class="col-md-4">
-                    <div class="card mb-4 box-shadow">
+                    <div class="card mb-4 box-shadow" style="box-shadow: 2px 2px 2px black;">
                         <div class="card-body">
                             <p class="card-text">ID: @Html.DisplayFor(modelItem => item.Id)</p>
                             <p class="card-text">Nombre: @Html.DisplayFor(modelItem => item.Nombre)</p>
                             <p class="card-text">Superpoder : @Html.DisplayFor(modelItem => item.Superpoder)</p>
                             <p class="card-text">Nivel de poder: @Html.DisplayFor(modelItem => item.Nivel)</p>
                             <p class="card-text">Retirado? : @Html.DisplayFor(modelItem => item.Retirado)</p>
-                            <p class="card-text">Correo : @Html.DisplayFor(modelItem => item.Correo)</p>
+                            @*<p class="card-text">Correo : @Html.DisplayFor(modelItem => item.Correo)</p>
                             <p class="card-text">Fecha de Nacimiento : @Html.DisplayFor(modelItem => item.FechaNac)</p>
                             <p class="card-text">Altura : @Html.DisplayFor(modelItem => item.Altura)</p>
-                            <p class="card-text">Peso : @Html.DisplayFor(modelItem => item.Peso)</p>
+                            <p class="card-text">Peso : @Html.DisplayFor(modelItem => item.Peso)</p>*@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
 
